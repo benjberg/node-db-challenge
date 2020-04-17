@@ -1,5 +1,6 @@
 const express = require('express');
 const projects = require('./project-model.js');
+
 const router = express.Router();
 
 router.get('/', (req,res) =>{
@@ -26,7 +27,7 @@ router.get("/:id", (req,res) => {
 })
 
 router.get('/:id/tasks', (req,res) => {
-    
+    const {id} = req.params;
     projects.getProjectTask(req.params.id)
     .then(tasks => {
         if(tasks){
@@ -49,7 +50,18 @@ projects.add(newProj).then(newProject =>{
 })
 })
 
-
+router.delete('/:id', (req,res) =>{
+    const {id} = req.params;
+    projects.remove(id).then(deleted =>{
+        if(deleted){
+            res.json({removed: deleted})
+        }else{
+            res.status(404).json({message: 'no project matching that ID exist'})
+        }
+    }).catch(err => {
+        res.status(500).json({ message: 'an error has occurred' });
+      });
+})
 
 
 

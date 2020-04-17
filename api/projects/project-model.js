@@ -5,7 +5,8 @@ module.exports = {
     getProjects,
     getById,
     getProjectTask,
-    add
+    add,
+    remove
 }
 
 function getProjects() {
@@ -26,3 +27,6 @@ function add(project) {
 return db('projects').insert(project)
 }
 
+function remove(id) {
+    return db('projects').where({ id }).del()
+}
