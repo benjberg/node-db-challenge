@@ -40,11 +40,19 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+sql is language (structured query language) which speaks to relational databasses. often they are the same thing, maybe a trick question?
+
 - [ ] Why do tables need a `primary key`?
+
+primary keys are needed for unique values, they help ensure low level accessibility. if done right it allows you to chose one value and manipulate the data within that entire row without changing the data of the other rows.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+forign key
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+
+we first need two tables that relate (author and books), we take make a third table to join them using a third table combining the forign keys that cross over betwen authors and books.
 
 ## Minimum Viable Product
 

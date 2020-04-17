@@ -26,8 +26,8 @@ router.get("/:id", (req,res) => {
 })
 
 router.get('/:id/tasks', (req,res) => {
-    ProjectId = req.params.id;
-    projects.getProjectTask(ProjectId)
+    
+    projects.getProjectTask(req.params.id)
     .then(tasks => {
         if(tasks){
             res.status(200).json(tasks)

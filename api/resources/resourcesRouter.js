@@ -12,7 +12,7 @@ router.get('/', (req,res) => {
     })
 })
 
-router.get('/:id', (res, req) => {
+router.get('/:id', (req,res) => {
     
     resource.getByID(req.params.id)
     .then(resources => {
